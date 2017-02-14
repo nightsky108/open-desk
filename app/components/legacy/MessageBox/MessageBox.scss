@@ -1,0 +1,15 @@
+.MessageBox {
+  list-style-type: none;
+  .message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      max-height: 140px;
+      max-width: 140px;
+    }
+  }
+  .message-body {
+    font-family: serif;
+  }
+}

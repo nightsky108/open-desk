@@ -1,8 +1,5 @@
-*.log
-**/*.log
-.DS_Store
-**/.DS_Store
-
-node_modules
-coverage
-src/config.js
+node_modules/
+build/
+coverage/
+.eslintcache
+npm-debug.log
