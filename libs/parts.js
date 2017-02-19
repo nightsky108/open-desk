@@ -150,7 +150,7 @@ exports.setFreeVariable = function (key, value) {
   env[key] = JSON.stringify(value)
   return {
     plugins: [
-      new webpack.DefinePlugin(env)
+      new webpack.DefilePlugin(env)
     ]
   }
 }
@@ -189,7 +189,7 @@ exports.extractCSS = function (paths) {
       loaders: [
         // Extract CSS during build
         {
-          test: /\.scss$/,
+          test: /\.css$/,
           loader: ExtractTextPlugin.extract('css!sass'),
           include: paths
         }

@@ -34,7 +34,7 @@ const common = merge(
     }
   },
   parts.indexTemplate({
-    title: 'Open Industry | The Open Source CRM',
+    title: 'Open Industry',
     appMountId: 'app'
   }),
   parts.loadJSX(PATHS.app),

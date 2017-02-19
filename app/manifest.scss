@@ -1,5 +1,10 @@
-// @import './components/Homepage/Homepage.scss';
-// @import './components/Bio/Bio.scss';
-// @import './components/BooksList/BooksList.scss';
-// @import './components/MessagesList/MessagesList.scss';
-// @import './components/MessageBox/MessageBox.scss';
+@import './styles/normalize.scss';
+
+//  Roboto Font and Material Icons
+@import './styles/google-fonts.css';
+
+ // React-MD Theme: Blue-Green
+@import './styles/md-theme-gridless.scss';
+
+// React-Data-Grid Custom Styles
+@import './styles/data-table.scss';

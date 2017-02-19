@@ -1,31 +1,24 @@
+// jshint ignore: start
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { IndexRoute, Router, Route, hashHistory } from 'react-router'
 
-import configureStore from './store'
-const store = configureStore()
+import injectTapEventPlugin from 'react-tap-event-plugin'
+injectTapEventPlugin()
 
-import App from './containers/App'
-
-const target = document.getElementById('app')
+import UI from './containers/UI'
+import Home from './components/Home'
 
 if (process.env.NODE_ENV !== 'production') {
   React.Perf = require('react-addons-perf')
 }
 
-const node = (<App store={store} />)
-ReactDOM.render(node, target)
-
-// render(<HomePage />, document.getElementById('app'))
-
-/*
-import App from './App'
-
-import configureStore from './store'
-
-const store = configureStore()
-
-const targetEl = document.getElementById('root')
-
-const node = (<App store={store}/>)
-ReactDOM.render(node, targetEl)
-*/
+render(
+  <Router history={hashHistory}>
+    <Route path='/' component={UI}>
+      <IndexRoute component={Home} />
+    </Route>
+  </Router>
+  , document.getElementById('app')
+)
+//  Add a route: <Route path='about' component={About} />
