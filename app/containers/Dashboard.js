@@ -2,6 +2,23 @@ import ReactDataGrid from 'react-data-grid'
 import React from 'react'
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
 
+// Custom Formatter component
+const PercentCompleteFormatter = React.createClass({
+  propTypes: {
+    value: React.PropTypes.number.isRequired
+  },
+
+  render () {
+    const percentComplete = this.props.value + '%'
+    return (
+      <div className='progress' style={{marginTop: '20px'}}>
+        <div className='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style={{width: percentComplete}}>
+          {percentComplete}
+        </div>
+      </div>)
+  }
+})
+
 const Dashboard = React.createClass({
   getInitialState () {
     this._columns = [
@@ -34,6 +51,7 @@ const Dashboard = React.createClass({
       {
         key: 'complete',
         name: '% Complete',
+        formatter: PercentCompleteFormatter,
         width: 100,
         filterable: true
       },
@@ -106,15 +124,18 @@ const Dashboard = React.createClass({
 
   render () {
     return (
-      <ReactDataGrid
-        columns={this._columns}
-        rowGetter={this.rowGetter}
-        enableCellSelect
-        rowsCount={this.getSize()}
-        minHeight={500}
-        toolbar={<Toolbar enableFilter />}
-        onAddFilter={this.handleFilterChange}
-        onClearFilters={this.onClearFilters} />)
+      <div id='grid-wrapper'>
+        <ReactDataGrid
+          columns={this._columns}
+          rowGetter={this.rowGetter}
+          enableCellSelect
+          rowsCount={this.getSize()}
+          minHeight={500}
+          toolbar={<Toolbar enableFilter />}
+          onAddFilter={this.handleFilterChange}
+          onClearFilters={this.onClearFilters} />
+      </div>
+    )
   }
 })
 

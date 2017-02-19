@@ -1,9 +1,8 @@
-.react-grid-Container {
-  // align-self: stretch;
-  // width: calc(80vw - 256px);
-  min-width: 600px;
-  width: 100vw;
-
+#grid-wrapper {
   padding: 16px;
   margin: 0;
+  .react-grid-Container {
+    min-width: 300px;
+    max-width: 100%;
+  }
 }

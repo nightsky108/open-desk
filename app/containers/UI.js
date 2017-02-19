@@ -27,14 +27,7 @@ module.exports = React.createClass({
           toolbarTitle={this.state.pageTitle ? this.state.pageTitle : this.state.defaultTitle}
           drawerTitle='Navigation'
         >
-          <div id='body'>
-            <div id='main'>
-              {React.cloneElement(this.props.children, {setTitle: this.setTitle})}
-            </div>
-          </div>
-          <footer className='md-paper md-paper--2'>
-            © Ryan Keller - Built to Material Design
-          </footer>
+          {React.cloneElement(this.props.children, {setTitle: this.setTitle})}
         </NavigationDrawer>
       </div>
     )
