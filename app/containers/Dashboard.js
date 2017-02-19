@@ -7,38 +7,46 @@ const Dashboard = React.createClass({
     this._columns = [
       {
         key: 'id',
-        name: 'ID',
-        width: 80,
-        filterable: true
+        name: 'Name',
+        width: 100,
+        filterable: true,
+        locked: true
       },
       {
         key: 'task',
-        name: 'Title',
-        filterable: true
+        name: 'Product',
+        width: 100,
+        filterable: true,
+        locked: true
       },
       {
         key: 'priority',
         name: 'Priority',
+        width: 100,
         filterable: true
       },
       {
         key: 'issueType',
         name: 'Issue Type',
+        width: 100,
         filterable: true
       },
       {
         key: 'complete',
         name: '% Complete',
+        width: 100,
         filterable: true
       },
       {
         key: 'startDate',
         name: 'Start Date',
+        width: 100,
         filterable: true
       },
       {
         key: 'completeDate',
         name: 'Expected Complete',
+        width: 100,
         filterable: true
       }
     ]

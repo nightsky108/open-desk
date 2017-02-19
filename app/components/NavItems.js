@@ -15,6 +15,6 @@ const NavItems = [{
   secondaryText: 'Web Administrator',
   leftIcon: <a href='mailto:rykeller@uw.edu' alt=''><FontIcon>mail</FontIcon></a>,
   tileClassName: 'selectable'
-}, {divider: true}]
+}, {divider: true}, <div>TEST</div>]
 
 export default NavItems
