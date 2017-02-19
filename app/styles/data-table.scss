@@ -5,4 +5,16 @@
     min-width: 300px;
     max-width: 100%;
   }
+  .form-group {
+    display: flex;
+    input {
+      width: 100%;
+    }
+  }
+  // .form-control {
+  //
+  // }
+  // .react-grid-Row {
+  //   min-height: 100px;
+  // }
 }

@@ -11,14 +11,18 @@ const PercentCompleteFormatter = React.createClass({
   render () {
     const percentComplete = this.props.value + '%'
     return (
-      <div className='progress' style={{marginTop: '20px'}}>
-        <div className='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style={{width: percentComplete}}>
-          {percentComplete}
-        </div>
+      <div className='progress'>
+        <div className='bar' style={{width: percentComplete}}>{percentComplete}</div>
       </div>)
   }
 })
+
 /*
+return (
+  <div className='progress'>
+    <div className='value'>{percentComplete}</div>
+    <div className='bar' style={{width: percentComplete}} />
+  </div>)
 <div class="progress">
         <div class="value">100%</div>
         <div class="bar" style="width: 100%;"></div>
@@ -31,16 +35,18 @@ const Dashboard = React.createClass({
       {
         key: 'id',
         name: 'Name',
-        width: 100,
+        width: 150,
         filterable: true,
-        locked: true
+        locked: true,
+        resizable: true
       },
       {
         key: 'task',
         name: 'Product',
-        width: 100,
+        width: 150,
         filterable: true,
-        locked: true
+        locked: true,
+        resizable: true
       },
       {
         key: 'priority',
@@ -49,15 +55,15 @@ const Dashboard = React.createClass({
         filterable: true
       },
       {
-        key: 'issueType',
-        name: 'Issue Type',
+        key: 'complete',
+        name: '% Complete',
+        formatter: PercentCompleteFormatter,
         width: 100,
         filterable: true
       },
       {
-        key: 'complete',
-        name: '% Complete',
-        formatter: PercentCompleteFormatter,
+        key: 'issueType',
+        name: 'Issue Type',
         width: 100,
         filterable: true
       },
