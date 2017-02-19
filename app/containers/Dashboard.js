@@ -2,32 +2,11 @@ import ReactDataGrid from 'react-data-grid'
 import React from 'react'
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
 
-// Custom Formatter component
-const PercentCompleteFormatter = React.createClass({
-  propTypes: {
-    value: React.PropTypes.number.isRequired
-  },
-
-  render () {
-    const percentComplete = this.props.value + '%'
-    return (
-      <div className='progress'>
-        <div className='bar' style={{width: percentComplete}}>{percentComplete}</div>
-      </div>)
-  }
-})
-
-/*
-return (
+const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
-    <div className='value'>{percentComplete}</div>
-    <div className='bar' style={{width: percentComplete}} />
-  </div>)
-<div class="progress">
-        <div class="value">100%</div>
-        <div class="bar" style="width: 100%;"></div>
-    </div>
-*/
+    <div className='bar' style={{width: `${value}%`}}>{`${value}%`}</div>
+  </div>
+)
 
 const Dashboard = React.createClass({
   getInitialState () {
