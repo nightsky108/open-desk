@@ -18,6 +18,12 @@ const PercentCompleteFormatter = React.createClass({
       </div>)
   }
 })
+/*
+<div class="progress">
+        <div class="value">100%</div>
+        <div class="bar" style="width: 100%;"></div>
+    </div>
+*/
 
 const Dashboard = React.createClass({
   getInitialState () {
