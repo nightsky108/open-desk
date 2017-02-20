@@ -82,19 +82,19 @@ const Dashboard = React.createClass({
         key: 'sales',
         name: '',
         formatter: <Button flat primary label='Sales' />,
-        width: 115
+        width: 110
       },
       {
         key: 'graphics',
         name: '',
         formatter: <Button flat primary label='Graphics' />,
-        width: 115
+        width: 110
       },
       {
         key: 'qa',
         name: '',
         formatter: <Button flat primary label='Q.A.' />,
-        width: 115
+        width: 110
       }
     ]
 
@@ -173,6 +173,7 @@ const Dashboard = React.createClass({
           rowGetter={this.rowGetter}
           rowsCount={this.getSize()}
           enableCellSelect
+          cellNavigationMode="loopOverRow"
           // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onGridRowsUpdated={this.handleGridRowsUpdated}

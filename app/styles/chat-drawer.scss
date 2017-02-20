@@ -1,18 +1,34 @@
-/* Temporary Drawer parent classes:
-md-paper md-paper--0 md-toolbar md-toolbar--discrete md-divider-border md-divider-border--bottom
-*/
-
-/* FULL_HEIGHT Drawer parent classes:
-
-*/
-
-/*
-md-floating-label md-floating-label--active md-floating-label--floating
-*/
-
+//  Fixing overlap with data table
 .md-drawer--fixed {
   z-index: 100;
+  .md-list--drawer {
+    padding-top: 0px;
+  }
 }
+
+.chat-box {
+  overflow-y: auto;
+  .chat-message {
+    padding: 8px;
+  }
+  .md-avatar {
+    vertical-align: top;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .md-paper {
+    display: inline-block;
+    border-radius: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 8px;
+    span {
+      font-weight: lighter;
+    }
+    word-break: break-all;
+  }
+}
+
 .md-text-field {
   textarea {
     overflow-y: scroll;
@@ -30,23 +46,3 @@ md-floating-label md-floating-label--active md-floating-label--floating
     transform: translate3d(0, -12px, 0);
   }
 }
-
-// @media screen and (min-width: 320px) {
-// .md-floating-label--floating {
-//     transform: translate3d(0, 16px, 0);
-// }
-// }
-
-// .md-floating-label--active {
-//   top: -32px;
-// }
-
-
-//.md-floating-label md-floating-label--active md-floating-label--floating
-
-/*active
-md-floating-label md-floating-label--active md-floating-label--floating
-*/
-/* Inactive
-md-floating-label md-floating-label--inactive md-floating-label--inactive-sized
-*/

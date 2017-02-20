@@ -4,6 +4,8 @@ import React from 'react'
 import ListItem from 'react-md/lib/Lists/ListItem'
 import Avatar from 'react-md/lib/Avatars'
 
+import Paper from 'react-md/lib/Papers'
+
 import TextField from 'react-md/lib/TextFields'
 
 //  Array is raw due to the unique nature of each element
@@ -13,20 +15,28 @@ const NavItems = [
     primaryText='Barren Skew'
     secondaryText={'Senior Graphics Coordinator\nGraphics Department'}
     threeLines
-  />, {divider: true}, {
-    primaryText: 'Company Chat', subheader: true
-  }, {divider: true},
-  <div>
-    <div className='md-list-tile md-text' tabindex='0' aria-pressed='false'>
-      <div className='md-tile-addon md-tile-addon--avatar'>
-        <div className='md-inline-block md-avatar md-avatar--default'>
-          <img src='https://unsplash.it/40/40?random&amp;time=1487572525338' role='presentation' className='md-avatar-img' />
-        </div>
-      </div>
-      <div className='md-tile-content md-tile-content--left-avatar md-tile-content--right-padding'>
-        <div className='md-tile-text--primary md-text'><b>Kelli Trosvig</b></div>
-        <div className='md-tile-text--secondary md-text--secondary md-tile-text--three-lines'>I'll be in your neighborhood sometime this week I'll be in your neighborhood sometime this week</div>
-      </div>
+  />, {divider: true},
+  <div className='chat-box'>
+    <div className='chat-message'>
+      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
+      <Paper>
+        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
+        Hello World
+      </Paper>
+    </div>
+    <div className='chat-message'>
+      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
+      <Paper>
+        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
+        Hello World
+      </Paper>
+    </div>
+    <div className='chat-message'>
+      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
+      <Paper>
+        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
+        Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
+      </Paper>
     </div>
   </div>, {divider: true},
   <TextField

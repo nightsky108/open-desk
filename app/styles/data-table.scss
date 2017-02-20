@@ -2,7 +2,7 @@
   padding: 16px;
   margin: 0;
   // width: 500px;
-  width: 100%;
+  width: 100vw;
   .react-grid-Grid {
     height: 80vh;
     width: 100%;
@@ -29,12 +29,6 @@
   .react-grid-Header {
     font-weight: bold;
   }
-  // .react-grid-Canvas {
-  //   overflow-x: auto !important;
-  // }
-  // .react-grid-Cell {
-  //   background-color: inherit;
-  // }
 }
 @media screen and (min-width: 1025px) {
   #grid-wrapper {

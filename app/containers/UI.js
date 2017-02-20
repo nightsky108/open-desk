@@ -27,7 +27,7 @@ module.exports = React.createClass({
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
           toolbarTitle={this.state.pageTitle ? this.state.pageTitle : this.state.defaultTitle}
-          drawerTitle='Navigation'
+          drawerTitle={<span className='md-text--theme-primary'>Messaging</span>}
         >
           {React.cloneElement(this.props.children, {setTitle: this.setTitle})}
         </NavigationDrawer>
