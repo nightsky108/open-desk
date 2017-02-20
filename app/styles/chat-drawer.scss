@@ -10,6 +10,7 @@
 }
 
 .chat-box {
+  height: calc(100vh - 88px - 60px - 100px);
   background-color: #f9f9f9;
   overflow-y: auto;
   .chat-message {
