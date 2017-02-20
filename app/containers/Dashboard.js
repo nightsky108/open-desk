@@ -4,19 +4,19 @@ const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
 
 import Button from 'react-md/lib/Buttons/Button'
 
-// const PercentCompleteFormatter = ({value}) => (
-//   <div className='progress'>
-//     <div className='bar' style={{width: `${value}%`}}>{`${value}%`}</div>
-//   </div>
-// )
-
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
-    <div className='progress-bar' role='progressbar'
-      aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
-      style={{width: `${value}%`}}
-      >{`${value}%`}
-    </div>
+    {value > 19
+      ?
+        <div className='progress-bar' role='progressbar'
+          aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
+          style={{
+            width: `${value}%`
+          }}>
+          {`${value}%`}
+        </div>
+      : <div>{`${value}%`}</div>
+    }
   </div>
 )
 
@@ -44,35 +44,35 @@ const Dashboard = React.createClass({
       {
         key: 'priority',
         name: 'Priority',
-        width: 100,
+        width: 80,
         filterable: true
       },
       {
         key: 'complete',
         name: '% Complete',
         formatter: PercentCompleteFormatter,
-        width: 100,
+        width: 120,
         filterable: true
       },
       {
         key: 'sales',
         name: 'Sales',
         formatter: ChatButton,
-        width: 110,
+        width: 115,
         filterable: true
       },
       {
         key: 'graphics',
         name: 'Graphics',
         formatter: ChatButton,
-        width: 110,
+        width: 115,
         filterable: true
       },
       {
         key: 'qa',
         name: 'QA',
         formatter: ChatButton,
-        width: 110,
+        width: 115,
         filterable: true
       }
     ]
@@ -94,10 +94,7 @@ const Dashboard = React.createClass({
         complete: Math.min(100, Math.round(Math.random() * 110)),
         sales: true,
         graphics: true,
-        qa: true,
-        issueType: ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
-        startDate: this.getRandomDate(new Date(2015, 3, 1), new Date()),
-        completeDate: this.getRandomDate(new Date(), new Date(2016, 0, 1))
+        qa: true
         /*
         id: i,
         task: `Task ${i}`,
