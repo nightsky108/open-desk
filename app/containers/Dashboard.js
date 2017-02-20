@@ -1,8 +1,8 @@
 import ReactDataGrid from 'react-data-grid'
 import React from 'react'
-const { Toolbar, Data: { Selectors }, Editors, Formatters } = require('react-data-grid-addons')
+const { Toolbar, Data: { Selectors }, Editors } = require('react-data-grid-addons')
 const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
-const { ImageFormatter } = Formatters
+// const { ImageFormatter } = Formatters
 
 import update from 'immutability-helper'
 
@@ -14,15 +14,7 @@ const bagOptions = [
   {id: 2, title: 'Standup Bag, Pour'},
   {id: 4, title: 'Packet, 4oz'}
 ]
-// const priorityOptions = [
-//   {id: 0, title: 'Standard'},
-//   {id: 1, title: 'Medium'},
-//   {id: 2, title: 'High'},
-//   {id: 3, title: 'Critical'}
-// ]
-// const bagOptions = ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee']
 const priorityOptions = ['Critical', 'High', 'Medium', 'Low']
-// const priorityOptions = [{ id: 0, title: 'Critical' }, { id: 1, title: 'High' }, { id: 2, title: 'Medium' }, { id: 3, title: 'Low'} ];
 
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
@@ -30,8 +22,8 @@ const PercentCompleteFormatter = ({value}) => (
       aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
       style={{
         width: `${value}%`,
-        color: value < 12 ? '#333' : '#fff',
-        backgroundColor: value < 12 ? '#82B1FF' : '#428bca'
+        color: value <= 20 ? '#333' : '#fff',
+        backgroundColor: value <= 20 ? '#82B1FF' : '#428bca'
       }}>
       {`${value}%`}
     </div>
@@ -46,20 +38,20 @@ const Dashboard = React.createClass({
       {
         key: 'name',
         name: 'Name',
-        width: 125,
         locked: true,
         resizable: true,
-        filterable: true
+        filterable: true,
+        width: 100
       },
       {
         key: 'product',
         name: 'Product',
-        width: 125,
         editor: <AutoCompleteEditor options={bagOptions} />,
         editable: true,
         // locked: true,  //  Affects the ability to use AutoCompleteEditor
         resizable: true,
-        filterable: true
+        filterable: true,
+        width: 125
         // update: () => console.log('Autocomplete update')
       },
       {
@@ -67,32 +59,41 @@ const Dashboard = React.createClass({
         name: 'Priority',
         editor: <DropDownEditor options={priorityOptions} />,
         editable: true,
-        width: 80,
-        filterable: true
+        resizable: true,
+        filterable: true,
+        width: 80
       },
       {
         key: 'complete',
-        name: '% Complete',
+        name: 'Completion',
         formatter: PercentCompleteFormatter,
-        width: 120,
-        editable: true        
+        editable: true,
+        resizable: true,
+        width: 120
+      },
+      {
+        key: 'status',
+        name: 'Status',
+        editable: true,
+        resizable: true,
+        width: 300
       },
       {
         key: 'sales',
-        name: 'Sales',
-        formatter: ChatButton,
+        name: '',
+        formatter: <Button flat primary label='Sales' />,
         width: 115
       },
       {
         key: 'graphics',
-        name: 'Graphics',
-        formatter: ChatButton,
+        name: '',
+        formatter: <Button flat primary label='Graphics' />,
         width: 115
       },
       {
         key: 'qa',
-        name: 'QA',
-        formatter: ChatButton,
+        name: '',
+        formatter: <Button flat primary label='Q.A.' />,
         width: 115
       }
     ]
@@ -111,10 +112,11 @@ const Dashboard = React.createClass({
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
         priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor(Math.random() * 4)],
-        complete: Math.min(100, Math.round(Math.random() * 110))
-        // sales: true,
-        // graphics: true,
-        // qa: true
+        complete: Math.min(100, Math.round(Math.random() * 110)),
+        status: ['Tear Ordered', 'Proof Review', 'Awaiting Charges', 'Customer AWOL'][Math.floor(Math.random() * 4)],
+        sales: 1,
+        graphics: 1,
+        qa: 1
       })
     }
 
@@ -169,8 +171,8 @@ const Dashboard = React.createClass({
         <ReactDataGrid
           columns={this._columns}
           rowGetter={this.rowGetter}
-          enableCellSelect
           rowsCount={this.getSize()}
+          enableCellSelect
           // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onGridRowsUpdated={this.handleGridRowsUpdated}

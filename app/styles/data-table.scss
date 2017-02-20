@@ -3,8 +3,10 @@
   margin: 0;
   .react-grid-Grid {
     height: 80vh;
+    width: 100%;
   }
   .react-grid-Container {
+    width: inherit;
     min-width: 300px;
     max-width: 100%;
   }
@@ -25,4 +27,10 @@
   .react-grid-Header {
     font-weight: bold;
   }
+  // .react-grid-Canvas {
+  //   overflow-x: auto !important;
+  // }
+  // .react-grid-Cell {
+  //   background-color: inherit;
+  // }
 }
