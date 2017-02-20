@@ -11,9 +11,9 @@ const NavItems = [{
 }, {divider: true}, {
   primaryText: 'Contact', subheader: true
 }, {divider: true}, {
-  primaryText: 'RyKeller@UW.edu',
+  primaryText: 'Admin@company.org',
   secondaryText: 'Web Administrator',
-  leftIcon: <a href='mailto:rykeller@uw.edu' alt=''><FontIcon>mail</FontIcon></a>,
+  leftIcon: <a href='mailto:Admin@company.org' alt=''><FontIcon>mail</FontIcon></a>,
   tileClassName: 'selectable'
 }, {divider: true}, <div>TEST</div>]
 

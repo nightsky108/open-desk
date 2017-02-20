@@ -5,16 +5,22 @@
     min-width: 300px;
     max-width: 100%;
   }
+  .react-grid-Toolbar {
+    height: 0;
+    padding: 0;
+    border: none;
+    .tools {
+      display: block;
+    }
+  }
   .form-group {
     display: flex;
     input {
       width: 100%;
     }
   }
-  // .form-control {
-  //
-  // }
-  // .react-grid-Row {
-  //   min-height: 100px;
-  // }
+  .react-grid-Cell {
+    padding: 4px !important;
+  }
+
 }

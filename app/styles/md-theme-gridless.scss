@@ -1106,7 +1106,7 @@ tbody {
 }
 
 .md-card-title--title-contextual {
-  color: #00e676;
+  color: #FF6D00;
   font-size: 16px;
   font-weight: 500;
 }
@@ -2096,7 +2096,7 @@ tbody {
 }
 
 .md-picker-header {
-  background: #2196f3;
+  background: #0D47A1;
   padding: 24px;
 }
 
@@ -2254,7 +2254,7 @@ tbody {
 }
 
 .md-calendar-date--btn:after {
-  background: #2196f3;
+  background: #0D47A1;
   border-radius: 50%;
   content: '';
   display: block;
@@ -2322,13 +2322,13 @@ tbody {
 
 .md-clock-hand {
   &:after {
-    background: #2196f3;
+    background: #0D47A1;
     border-radius: 50%;
     content: '';
     position: absolute;
   }
   &:before {
-    background: #2196f3;
+    background: #0D47A1;
     border-radius: 50%;
     content: '';
     position: absolute;
@@ -2387,7 +2387,7 @@ tbody {
 
 .md-circular-progress-path {
   fill: none;
-  stroke: #00e676;
+  stroke: #FF6D00;
   stroke-dasharray: 187px;
 }
 
@@ -2434,7 +2434,7 @@ tbody {
 
 
 .md-progress--linear {
-  background: #b9f6ca;
+  background: #FFD180;
   height: 3px;
   overflow: hidden;
   position: relative;
@@ -2442,7 +2442,7 @@ tbody {
 }
 
 .md-progress--linear-active {
-  background: #00e676;
+  background: #FF6D00;
 }
 
 .md-progress--linear-determinate {
@@ -2705,7 +2705,7 @@ tbody {
 }
 
 .md-slider-track-fill {
-  background: #2196f3;
+  background: #0D47A1;
   border: 0;
   height: 2px;
   left: 0;
@@ -2737,7 +2737,7 @@ tbody {
 }
 
 .md-slider-thumb--on {
-  background: #2196f3;
+  background: #0D47A1;
 }
 
 .md-slider-thumb--active {
@@ -2801,7 +2801,7 @@ tbody {
 }
 
 .md-slider-thumb--discrete-on:after {
-  border-top-color: #2196f3;
+  border-top-color: #0D47A1;
 }
 
 .md-slider-thumb--discrete-off {
@@ -3082,7 +3082,7 @@ tbody {
 }
 
 .md-tab-indicator {
-  background: #00e676;
+  background: #FF6D00;
   bottom: 0;
   content: '';
   height: 2px;
@@ -3380,7 +3380,7 @@ tbody {
 .md-divider--text-field {
   margin-top: 7px;
   &:after {
-    background: #2196f3;
+    background: #0D47A1;
     content: '';
     display: block;
     height: 2px;
@@ -3434,7 +3434,7 @@ tbody {
 }
 
 .md-floating-label--active {
-  color: #2196f3;
+  color: #0D47A1;
 }
 
 .md-floating-label--error {
@@ -3514,7 +3514,7 @@ tbody {
 }
 
 .md-text-field-icon--active {
-  color: #2196f3;
+  color: #0D47A1;
 }
 
 .md-text-field-icon--error {
@@ -3929,7 +3929,7 @@ tbody {
 }
 
 .md-text--theme-secondary {
-  color: #00e676;
+  color: #FF6D00;
 }
 
 .md-ink--primary .md-ink {
@@ -3949,20 +3949,20 @@ tbody {
 }
 
 .md-background--primary {
-  background: #2196f3;
+  background: #0D47A1;
   color: #fff;
 }
 
 .md-background--secondary {
-  background: #00e676;
+  background: #FF6D00;
   color: #fff;
 }
 
 @media screen and (min-width: 1025px) {
   .md-background--primary-hover:hover {
-    background: rgba(33, 150, 243, 0.9);
+    background: rgba(13, 71, 161, 0.7);
   }
   .md-background--secondary-hover:hover {
-    background: rgba(0, 230, 118, 0.9);
+    background: rgba(255, 109, 0, 0.7);
   }
 }

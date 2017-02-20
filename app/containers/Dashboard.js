@@ -2,27 +2,41 @@ import ReactDataGrid from 'react-data-grid'
 import React from 'react'
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
 
+import Button from 'react-md/lib/Buttons/Button'
+
+// const PercentCompleteFormatter = ({value}) => (
+//   <div className='progress'>
+//     <div className='bar' style={{width: `${value}%`}}>{`${value}%`}</div>
+//   </div>
+// )
+
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
-    <div className='bar' style={{width: `${value}%`}}>{`${value}%`}</div>
+    <div className='progress-bar' role='progressbar'
+      aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
+      style={{width: `${value}%`}}
+      >{`${value}%`}
+    </div>
   </div>
 )
+
+const ChatButton = () => <Button flat primary label='Chat'>chat_bubble_outline</Button>
 
 const Dashboard = React.createClass({
   getInitialState () {
     this._columns = [
       {
-        key: 'id',
+        key: 'name',
         name: 'Name',
-        width: 150,
+        width: 125,
         filterable: true,
         locked: true,
         resizable: true
       },
       {
-        key: 'task',
+        key: 'product',
         name: 'Product',
-        width: 150,
+        width: 125,
         filterable: true,
         locked: true,
         resizable: true
@@ -41,21 +55,24 @@ const Dashboard = React.createClass({
         filterable: true
       },
       {
-        key: 'issueType',
-        name: 'Issue Type',
-        width: 100,
+        key: 'sales',
+        name: 'Sales',
+        formatter: ChatButton,
+        width: 110,
         filterable: true
       },
       {
-        key: 'startDate',
-        name: 'Start Date',
-        width: 100,
+        key: 'graphics',
+        name: 'Graphics',
+        formatter: ChatButton,
+        width: 110,
         filterable: true
       },
       {
-        key: 'completeDate',
-        name: 'Expected Complete',
-        width: 100,
+        key: 'qa',
+        name: 'QA',
+        formatter: ChatButton,
+        width: 110,
         filterable: true
       }
     ]
@@ -69,8 +86,19 @@ const Dashboard = React.createClass({
 
   createRows () {
     let rows = []
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1; i < 50; i++) {
       rows.push({
+        name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor((Math.random() * 3) + 1)],
+        product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor((Math.random() * 3) + 1)],
+        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor((Math.random() * 3) + 1)],
+        complete: Math.min(100, Math.round(Math.random() * 110)),
+        sales: true,
+        graphics: true,
+        qa: true,
+        issueType: ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
+        startDate: this.getRandomDate(new Date(2015, 3, 1), new Date()),
+        completeDate: this.getRandomDate(new Date(), new Date(2016, 0, 1))
+        /*
         id: i,
         task: `Task ${i}`,
         complete: Math.min(100, Math.round(Math.random() * 110)),
@@ -78,6 +106,7 @@ const Dashboard = React.createClass({
         issueType: ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
         startDate: this.getRandomDate(new Date(2015, 3, 1), new Date()),
         completeDate: this.getRandomDate(new Date(), new Date(2016, 0, 1))
+        */
       })
     }
 
@@ -121,7 +150,7 @@ const Dashboard = React.createClass({
           rowGetter={this.rowGetter}
           enableCellSelect
           rowsCount={this.getSize()}
-          minHeight={500}
+          minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onAddFilter={this.handleFilterChange}
           onClearFilters={this.onClearFilters} />
