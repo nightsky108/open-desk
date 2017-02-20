@@ -4,6 +4,9 @@ const { Toolbar, Data: { Selectors }, Editors, Formatters } = require('react-dat
 const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
 const { ImageFormatter } = Formatters
 
+
+import update from 'immutability-helper'
+
 import Button from 'react-md/lib/Buttons/Button'
 
 const bagOptions = [
@@ -57,7 +60,7 @@ const Dashboard = React.createClass({
         editable: true,
         locked: true,
         resizable: true,
-        filterable: true,
+        filterable: true
         // update: () => console.log('Autocomplete update')
       },
       {
@@ -109,18 +112,9 @@ const Dashboard = React.createClass({
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
         priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor(Math.random() * 4)],
         complete: Math.min(100, Math.round(Math.random() * 110)),
-        sales: true,
-        graphics: true,
-        qa: true
-        /*
-        id: i,
-        task: `Task ${i}`,
-        complete: Math.min(100, Math.round(Math.random() * 110)),
-        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor((Math.random() * 3) + 1)],
-        issueType: ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
-        startDate: this.getRandomDate(new Date(2015, 3, 1), new Date()),
-        completeDate: this.getRandomDate(new Date(), new Date(2016, 0, 1))
-        */
+        // sales: true,
+        // graphics: true,
+        // qa: true
       })
     }
 
@@ -140,7 +134,8 @@ const Dashboard = React.createClass({
 
     for (let i = fromRow; i <= toRow; i++) {
       let rowToUpdate = rows[i]
-      let updatedRow = React.addons.update(rowToUpdate, {$merge: updated})
+      //Error here
+      let updatedRow = update(rowToUpdate, {$merge: updated})
       rows[i] = updatedRow
     }
 
