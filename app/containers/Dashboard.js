@@ -6,17 +6,15 @@ import Button from 'react-md/lib/Buttons/Button'
 
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
-    {value > 19
-      ?
-        <div className='progress-bar' role='progressbar'
-          aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
-          style={{
-            width: `${value}%`
-          }}>
-          {`${value}%`}
-        </div>
-      : <div>{`${value}%`}</div>
-    }
+    <div className='progress-bar' role='progressbar'
+      aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
+      style={{
+        width: `${value}%`,
+        color: value < 12 ? '#333' : '#fff',
+        backgroundColor: value < 12 ? '#82B1FF' : '#428bca'
+      }}>
+      {`${value}%`}
+    </div>
   </div>
 )
 
@@ -29,17 +27,17 @@ const Dashboard = React.createClass({
         key: 'name',
         name: 'Name',
         width: 125,
-        filterable: true,
         locked: true,
-        resizable: true
+        resizable: true,
+        filterable: true
       },
       {
         key: 'product',
         name: 'Product',
         width: 125,
-        filterable: true,
         locked: true,
-        resizable: true
+        resizable: true,
+        filterable: true
       },
       {
         key: 'priority',
@@ -51,29 +49,25 @@ const Dashboard = React.createClass({
         key: 'complete',
         name: '% Complete',
         formatter: PercentCompleteFormatter,
-        width: 120,
-        filterable: true
+        width: 120
       },
       {
         key: 'sales',
         name: 'Sales',
         formatter: ChatButton,
-        width: 115,
-        filterable: true
+        width: 115
       },
       {
         key: 'graphics',
         name: 'Graphics',
         formatter: ChatButton,
-        width: 115,
-        filterable: true
+        width: 115
       },
       {
         key: 'qa',
         name: 'QA',
         formatter: ChatButton,
-        width: 115,
-        filterable: true
+        width: 115
       }
     ]
 

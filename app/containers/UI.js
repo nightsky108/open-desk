@@ -20,6 +20,7 @@ module.exports = React.createClass({
     return (
       <div>
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
         <NavigationDrawer
           navItems={NavItems}
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
