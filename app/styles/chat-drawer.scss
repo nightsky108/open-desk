@@ -1,3 +1,52 @@
+/* Temporary Drawer parent classes:
+md-paper md-paper--0 md-toolbar md-toolbar--discrete md-divider-border md-divider-border--bottom
+*/
+
+/* FULL_HEIGHT Drawer parent classes:
+
+*/
+
+/*
+md-floating-label md-floating-label--active md-floating-label--floating
+*/
+
 .md-drawer--fixed {
   z-index: 100;
 }
+.md-text-field {
+  textarea {
+    overflow-y: scroll;
+  }
+}
+
+//Text area label responsiveness fix.
+@media screen and (min-width: 320px) {
+  .md-floating-label--floating {
+    transform: translate3d(0, -16px, 0);
+  }
+}
+@media screen and (min-width: 1025px) {
+  .md-floating-label--floating {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+// @media screen and (min-width: 320px) {
+// .md-floating-label--floating {
+//     transform: translate3d(0, 16px, 0);
+// }
+// }
+
+// .md-floating-label--active {
+//   top: -32px;
+// }
+
+
+//.md-floating-label md-floating-label--active md-floating-label--floating
+
+/*active
+md-floating-label md-floating-label--active md-floating-label--floating
+*/
+/* Inactive
+md-floating-label md-floating-label--inactive md-floating-label--inactive-sized
+*/
