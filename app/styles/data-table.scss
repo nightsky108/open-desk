@@ -1,6 +1,9 @@
 #grid-wrapper {
   padding: 16px;
   margin: 0;
+  .react-grid-Grid {
+    height: 80vh;
+  }
   .react-grid-Container {
     min-width: 300px;
     max-width: 100%;
@@ -22,13 +25,4 @@
   .react-grid-Header {
     font-weight: bold;
   }
-  // .react-grid-HeaderRow {
-  //   .widget-HeaderCell__value {
-  //     display: none;
-  //   }
-  // }
-  .react-grid-Cell {
-    padding: 4px !important;
-  }
-
 }

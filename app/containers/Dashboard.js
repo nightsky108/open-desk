@@ -1,8 +1,24 @@
 import ReactDataGrid from 'react-data-grid'
 import React from 'react'
-const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
+const { Toolbar, Data: { Selectors }, Editors, Formatters } = require('react-data-grid-addons')
+const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
+const { ImageFormatter } = Formatters
 
 import Button from 'react-md/lib/Buttons/Button'
+
+const bagOptions = [
+  {id: 0, title: 'Bag, 12oz'},
+  {id: 1, title: 'Tin, 8oz'},
+  {id: 2, title: 'Standup Bag, Pour'},
+  {id: 4, title: 'Packet, 4oz'}
+]
+// const priorityOptions = [
+//   {id: 0, title: 'Standard'},
+//   {id: 1, title: 'Medium'},
+//   {id: 2, title: 'High'},
+//   {id: 3, title: 'Critical'}
+// ]
+const priorityOptions = ['Critical', 'High', 'Medium', 'Low']
 
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
@@ -35,6 +51,8 @@ const Dashboard = React.createClass({
         key: 'product',
         name: 'Product',
         width: 125,
+        editor: <AutoCompleteEditor options={bagOptions} />,
+        editable: true,
         locked: true,
         resizable: true,
         filterable: true
@@ -42,6 +60,7 @@ const Dashboard = React.createClass({
       {
         key: 'priority',
         name: 'Priority',
+        editor: <DropDownEditor options={priorityOptions} />,
         width: 80,
         filterable: true
       },
@@ -141,7 +160,7 @@ const Dashboard = React.createClass({
           rowGetter={this.rowGetter}
           enableCellSelect
           rowsCount={this.getSize()}
-          minHeight={'80vh'}
+          // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onAddFilter={this.handleFilterChange}
           onClearFilters={this.onClearFilters} />

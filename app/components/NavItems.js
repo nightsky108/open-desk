@@ -15,13 +15,25 @@ const NavItems = [
     primaryText='Barren Skew'
     secondaryText={'Senior Graphics Coordinator\nGraphics Department'}
     threeLines
-  />, {divider: true},
+  />, {divider: true}, {
+    primaryText: 'Company Chat', subheader: true
+  }, {divider: true},
   <div>
-    Chat Messages Here
+    <div className='md-list-tile md-text' tabindex='0' aria-pressed='false'>
+      <div className='md-tile-addon md-tile-addon--avatar'>
+        <div className='md-inline-block md-avatar md-avatar--default'>
+          <img src='https://unsplash.it/40/40?random&amp;time=1487572525338' role='presentation' className='md-avatar-img' />
+        </div>
+      </div>
+      <div className='md-tile-content md-tile-content--left-avatar md-tile-content--right-padding'>
+        <div className='md-tile-text--primary md-text'><b>Kelli Trosvig</b></div>
+        <div className='md-tile-text--secondary md-text--secondary md-tile-text--three-lines'>I'll be in your neighborhood sometime this week I'll be in your neighborhood sometime this week</div>
+      </div>
+    </div>
   </div>, {divider: true},
   <TextField
     id='floatingMultiline'
-    label='Company Chat'
+    label='Type a message...'
     // placeholder="Hello World"
     lineDirection='right'
     rows={4}
