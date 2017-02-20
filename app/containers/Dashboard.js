@@ -4,7 +4,6 @@ const { Toolbar, Data: { Selectors }, Editors, Formatters } = require('react-dat
 const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
 const { ImageFormatter } = Formatters
 
-
 import update from 'immutability-helper'
 
 import Button from 'react-md/lib/Buttons/Button'
@@ -58,7 +57,7 @@ const Dashboard = React.createClass({
         width: 125,
         editor: <AutoCompleteEditor options={bagOptions} />,
         editable: true,
-        locked: true,
+        // locked: true,  //  Affects the ability to use AutoCompleteEditor
         resizable: true,
         filterable: true
         // update: () => console.log('Autocomplete update')
@@ -75,7 +74,8 @@ const Dashboard = React.createClass({
         key: 'complete',
         name: '% Complete',
         formatter: PercentCompleteFormatter,
-        width: 120
+        width: 120,
+        editable: true        
       },
       {
         key: 'sales',
@@ -111,7 +111,7 @@ const Dashboard = React.createClass({
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
         priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor(Math.random() * 4)],
-        complete: Math.min(100, Math.round(Math.random() * 110)),
+        complete: Math.min(100, Math.round(Math.random() * 110))
         // sales: true,
         // graphics: true,
         // qa: true
@@ -134,7 +134,7 @@ const Dashboard = React.createClass({
 
     for (let i = fromRow; i <= toRow; i++) {
       let rowToUpdate = rows[i]
-      //Error here
+      // Error here
       let updatedRow = update(rowToUpdate, {$merge: updated})
       rows[i] = updatedRow
     }
