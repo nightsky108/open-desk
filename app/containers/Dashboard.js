@@ -173,7 +173,7 @@ const Dashboard = React.createClass({
           rowGetter={this.rowGetter}
           rowsCount={this.getSize()}
           enableCellSelect
-          cellNavigationMode="loopOverRow"
+          cellNavigationMode='loopOverRow'
           // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onGridRowsUpdated={this.handleGridRowsUpdated}

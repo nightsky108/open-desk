@@ -40,8 +40,9 @@ const NavItems = [
     </div>
   </div>, {divider: true},
   <TextField
-    id='floatingMultiline'
-    label='Type a message...'
+    id='singleMultiline'
+    // id='floatingMultiline'
+    // label='Type a message...'
     // placeholder="Hello World"
     lineDirection='right'
     rows={4}

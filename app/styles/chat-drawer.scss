@@ -5,8 +5,12 @@
     padding-top: 0px;
   }
 }
+.md-list .md-divider {
+  margin: 0;
+}
 
 .chat-box {
+  background-color: #f9f9f9;
   overflow-y: auto;
   .chat-message {
     padding: 8px;
@@ -18,20 +22,34 @@
   }
   .md-paper {
     display: inline-block;
+    max-width: 200px;
     border-radius: 8px;
     margin-left: 8px;
     margin-right: 8px;
     padding: 8px;
+    background-color: white;
     span {
       font-weight: lighter;
     }
     word-break: break-all;
   }
 }
-
-.md-text-field {
-  textarea {
-    overflow-y: scroll;
+.md-text-field-container {
+  height: 100px;
+  max-height: 100px;
+}
+.md-text-field-multiline-container {
+  max-height: 100px !important;
+  width: 100%;
+  margin-top: 0;
+  overflow-y: none;
+  .md-text-field {
+    max-height: inherit;
+    padding: 8px;
+    textarea {
+      max-height: inherit;
+      overflow-y: auto;
+    }
   }
 }
 
