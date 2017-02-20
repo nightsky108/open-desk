@@ -18,7 +18,9 @@ const bagOptions = [
 //   {id: 2, title: 'High'},
 //   {id: 3, title: 'Critical'}
 // ]
+// const bagOptions = ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee']
 const priorityOptions = ['Critical', 'High', 'Medium', 'Low']
+// const priorityOptions = [{ id: 0, title: 'Critical' }, { id: 1, title: 'High' }, { id: 2, title: 'Medium' }, { id: 3, title: 'Low'} ];
 
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
@@ -55,12 +57,14 @@ const Dashboard = React.createClass({
         editable: true,
         locked: true,
         resizable: true,
-        filterable: true
+        filterable: true,
+        // update: () => console.log('Autocomplete update')
       },
       {
         key: 'priority',
         name: 'Priority',
         editor: <DropDownEditor options={priorityOptions} />,
+        editable: true,
         width: 80,
         filterable: true
       },
@@ -101,9 +105,9 @@ const Dashboard = React.createClass({
     let rows = []
     for (let i = 1; i < 50; i++) {
       rows.push({
-        name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor((Math.random() * 3) + 1)],
-        product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor((Math.random() * 3) + 1)],
-        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor((Math.random() * 3) + 1)],
+        name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
+        product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
+        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor(Math.random() * 4)],
         complete: Math.min(100, Math.round(Math.random() * 110)),
         sales: true,
         graphics: true,
@@ -129,6 +133,18 @@ const Dashboard = React.createClass({
 
   getSize () {
     return this.getRows().length
+  },
+
+  handleGridRowsUpdated ({ fromRow, toRow, updated }) {
+    let rows = this.state.rows.slice()
+
+    for (let i = fromRow; i <= toRow; i++) {
+      let rowToUpdate = rows[i]
+      let updatedRow = React.addons.update(rowToUpdate, {$merge: updated})
+      rows[i] = updatedRow
+    }
+
+    this.setState({ rows })
   },
 
   rowGetter (rowIdx) {
@@ -162,6 +178,7 @@ const Dashboard = React.createClass({
           rowsCount={this.getSize()}
           // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
+          onGridRowsUpdated={this.handleGridRowsUpdated}
           onAddFilter={this.handleFilterChange}
           onClearFilters={this.onClearFilters} />
       </div>
