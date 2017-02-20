@@ -2,15 +2,17 @@
 .md-drawer--fixed {
   z-index: 100;
   .md-list--drawer {
-    padding-top: 0px;
+    padding: 0px;
   }
+  max-height: 100vh !important;
+  overflow-y: hidden;
 }
 .md-list .md-divider {
   margin: 0;
 }
 
 .chat-box {
-  height: calc(100vh - 88px - 60px - 100px);
+  height: calc(100vh - 90px - 65px - 100px);
   background-color: #f9f9f9;
   overflow-y: auto;
   .chat-message {

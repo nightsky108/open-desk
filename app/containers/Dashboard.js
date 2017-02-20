@@ -41,6 +41,7 @@ const Dashboard = React.createClass({
         locked: true,
         resizable: true,
         filterable: true,
+        sortable: true,
         width: 100
       },
       {
@@ -51,6 +52,7 @@ const Dashboard = React.createClass({
         // locked: true,  //  Affects the ability to use AutoCompleteEditor
         resizable: true,
         filterable: true,
+        sortable: true,
         width: 125
         // update: () => console.log('Autocomplete update')
       },
@@ -61,6 +63,7 @@ const Dashboard = React.createClass({
         editable: true,
         resizable: true,
         filterable: true,
+        sortable: true,
         width: 80
       },
       {
@@ -69,6 +72,7 @@ const Dashboard = React.createClass({
         formatter: PercentCompleteFormatter,
         editable: true,
         resizable: true,
+        sortable: true,
         width: 120
       },
       {
@@ -149,6 +153,10 @@ const Dashboard = React.createClass({
     return rows[rowIdx]
   },
 
+  handleGridSort (sortColumn, sortDirection) {
+    this.setState({ sortColumn: sortColumn, sortDirection: sortDirection })
+  },
+
   handleFilterChange (filter) {
     let newFilters = Object.assign({}, this.state.filters)
     if (filter.filterTerm) {
@@ -177,6 +185,7 @@ const Dashboard = React.createClass({
           // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onGridRowsUpdated={this.handleGridRowsUpdated}
+          onGridSort={this.handleGridSort}
           onAddFilter={this.handleFilterChange}
           onClearFilters={this.onClearFilters} />
       </div>
