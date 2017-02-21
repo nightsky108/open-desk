@@ -19,7 +19,7 @@ const Dashboard = React.createClass({
   },
   createRows () {
     let rows = []
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 100; i++) {
       rows.push({
         id: i,
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
@@ -62,7 +62,7 @@ const Dashboard = React.createClass({
   },
 
   //  Automatically sorts by incomplete orders first.
-  // componentWillMount () { this.handleGridSort('priority', 'ASC') },
+  componentWillMount () { this.handleGridSort('priority', 'ASC') },
 
   handleGridSort (sortColumn, sortDirection) {
     if (sortDirection !== 'NONE') {
