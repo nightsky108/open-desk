@@ -37,6 +37,21 @@ const NavItems = [
         <span className='md-text--secondary'>Darren | 12:41pm</span><br />
         Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
       </Paper>
+    </div>,
+    <div className='chat-message'>
+      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
+      <Paper>
+        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
+        Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
+      </Paper>
+    </div>,
+    <div className='chat-message'>
+
+      <Paper>
+        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
+        Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
+      </Paper>
+      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
     </div>
   </div>, {divider: true},
   <TextField
