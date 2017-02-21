@@ -19,35 +19,14 @@ const NavItems = [
   <div className='chat-box'>
     <div className='chat-message'>
       <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
-      <Paper>
-        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
-        Hello World
-      </Paper>
-    </div>
-    <div className='chat-message'>
-      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
-      <Paper>
-        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
-        Hello World
-      </Paper>
-    </div>
-    <div className='chat-message'>
-      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
-      <Paper>
+      <Paper style={{borderRadius: '0 8px 8px 8px'}}>
         <span className='md-text--secondary'>Darren | 12:41pm</span><br />
         Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
       </Paper>
-    </div>,
-    <div className='chat-message'>
-      <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
-      <Paper>
-        <span className='md-text--secondary'>Darren | 12:41pm</span><br />
-        Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
-      </Paper>
-    </div>,
+    </div>
     <div className='chat-message'>
 
-      <Paper>
+      <Paper style={{borderRadius: '8px 0 8px 8px'}}>
         <span className='md-text--secondary'>Darren | 12:41pm</span><br />
         Hello World I'm going to talk about myself and my packages nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
       </Paper>
