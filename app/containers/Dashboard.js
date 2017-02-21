@@ -114,7 +114,7 @@ const Dashboard = React.createClass({
 
   createRows () {
     let rows = []
-    for (let i = 1; i < 50; i++) {
+    for (let i = 1; i < 10; i++) {
       rows.push({
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
@@ -156,13 +156,22 @@ const Dashboard = React.createClass({
     return rows[rowIdx]
   },
 
-  componentDidMount () {
+  componentWillMount () {
     //  Automatically sorts by incomplete orders first.
-    this.setState({sortColumn: 'complete', sortDirection: 'ASC'})
+    this.handleGridSort('priority', 'ASC')
   },
-
   handleGridSort (sortColumn, sortDirection) {
-    this.setState({ sortColumn: sortColumn, sortDirection: sortDirection })
+    const comparer = (a, b) => {
+      if (sortDirection === 'ASC') {
+        return (a[sortColumn] > b[sortColumn]) ? 1 : -1
+      } else if (sortDirection === 'DESC') {
+        return (a[sortColumn] < b[sortColumn]) ? 1 : -1
+      }
+    }
+
+    const rows = sortDirection === 'NONE' ? this.state.originalRows.slice(0) : this.state.rows.sort(comparer)
+
+    this.setState({ rows })
   },
 
   handleFilterChange (filter) {
@@ -190,7 +199,6 @@ const Dashboard = React.createClass({
           rowsCount={this.getSize()}
           enableCellSelect
           cellNavigationMode='loopOverRow'
-          // minHeight={'80vh'}
           toolbar={<Toolbar enableFilter />}
           onGridRowsUpdated={this.handleGridRowsUpdated}
           onGridSort={this.handleGridSort}
