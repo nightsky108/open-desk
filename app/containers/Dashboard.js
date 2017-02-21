@@ -55,7 +55,7 @@ const Dashboard = React.createClass({
   },
 
   //  Automatically sorts by incomplete orders first.
-  componentWillMount () { this.handleGridSort('priority', 'ASC') },
+  // componentWillMount () { this.handleGridSort('priority', 'ASC') },
 
   handleGridSort (sortColumn, sortDirection) {
     const comparer = (a, b) => {

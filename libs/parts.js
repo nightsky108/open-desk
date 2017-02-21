@@ -150,7 +150,7 @@ exports.setFreeVariable = function (key, value) {
   env[key] = JSON.stringify(value)
   return {
     plugins: [
-      new webpack.DefilePlugin(env)
+      new webpack.DefinePlugin(env)
     ]
   }
 }
