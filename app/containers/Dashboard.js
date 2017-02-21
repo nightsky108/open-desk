@@ -39,19 +39,21 @@ const Dashboard = React.createClass({
   getSize () { return this.getRows().length },
 
   handleGridRowsUpdated ({ fromRow, toRow, updated }) {
+    //  Copy state
     let rows = this.state.rows.slice()
-    console.log('ROWS', rows)
-    console.log('FROM', fromRow)
-    console.log('TO', toRow)
-    console.log('UPDATED', updated)
-    console.log('Getrows', this.getRows())
-    for (let i = fromRow; i <= toRow; i++) {
-      let rowToUpdate = rows[i]
-      // Error here
-      let updatedRow = update(rowToUpdate, {$merge: updated})
-      rows[i] = updatedRow
+    let rowToUpdate = this.getRows()[fromRow]
+    let updatedRow = update(rowToUpdate, {$merge: updated})
+    //  Got the updated row
+    // console.log('Updated Row', updatedRow)
+
+    //  Replace the row in state that has a matching UUID.
+    for (let i in rows) {
+      if (rows[i].id === updatedRow.id) {
+        rows[i] = updatedRow
+        this.setState({ rows })
+        break
+      }
     }
-    this.setState({ rows })
   },
 
   rowGetter (rowIdx) {
