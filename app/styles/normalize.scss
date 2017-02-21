@@ -4,23 +4,19 @@
   padding: 0;
   word-wrap: break-word;
 }
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
+    // width: 1px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
-/* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: transparent;
-}
-//
 // html {
-//   max-height: 100vh;
+//     overflow: scroll;
+//     overflow-x: hidden;
 // }
-//
-// #main-content {
-//   max-height: 100vh;
+// ::-webkit-scrollbar {
+//     width: 0px;  /* remove scrollbar space */
+//     background: transparent;  /* optional: just make scrollbar invisible */
+// }
+/* optional: show position indicator in red */
+// ::-webkit-scrollbar-thumb {
+//     background: transparent;
 // }

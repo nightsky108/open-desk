@@ -7,13 +7,8 @@ import NavItems from '../components/NavItems'
 module.exports = React.createClass({
   getInitialState: function () {
     return {
-      defaultTitle: <span>Open Industry | <em>the open source management platform</em></span>,
-      pageTitle: ''
+      toolbarTitle: <span>Open Industry | <em>service manager</em></span>
     }
-  },
-
-  setTitle: function (page) {
-    this.setState({pageTitle: page})
   },
 
   render () {
@@ -26,10 +21,10 @@ module.exports = React.createClass({
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
-          toolbarTitle={this.state.pageTitle ? this.state.pageTitle : this.state.defaultTitle}
+          toolbarTitle={this.state.toolbarTitle}
           drawerTitle={<span className='md-text--theme-primary'>Messaging</span>}
         >
-          {React.cloneElement(this.props.children, {setTitle: this.setTitle})}
+          {this.props.children}
         </NavigationDrawer>
       </div>
     )
