@@ -11,24 +11,27 @@
   margin: 0;
 }
 
-.chat-box {
-  height: calc(100vh - 90px - 65px - 100px);
+.chat-box { //  Window - Profile - Toolbar - TextArea - 2 dividers
+  height: calc(100vh - 76px - 64px - 100px - 10px);
   background-color: #f9f9f9;
   overflow-y: auto;
   .chat-message {
-    padding: 8px;
+    padding: 4px;
   }
   .md-avatar {
     vertical-align: top;
-    margin-top: 4px;
+    // margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+
   }
   .md-paper {
     display: inline-block;
-    max-width: 200px;
-    border-radius: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
+    max-width: 210px;
+    border-radius: 0 8px 8px 8px;
+    // margin-left: 8px;
+    // margin-right: 8px;
     padding: 8px;
     background-color: white;
     span {

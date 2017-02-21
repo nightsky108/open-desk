@@ -12,9 +12,14 @@ const bagOptions = [
   {id: 0, title: 'Bag, 12oz'},
   {id: 1, title: 'Tin, 8oz'},
   {id: 2, title: 'Standup Bag, Pour'},
-  {id: 4, title: 'Packet, 4oz'}
+  {id: 3, title: 'Packet, 4oz'}
 ]
-const priorityOptions = ['Critical', 'High', 'Medium', 'Low']
+const priorityOptions = ['1 - Critical', '2 - High', '3 - Medium', '4 - Low']
+// const priorityOptions = [
+  // {id: 3, value: 3, title: 'Critical'},
+  // {id: 2, value: 2, title: 'High'},
+  // {id: 1, value: 1, title: 'Medium'},
+  // {id: 0, value: 0, title: 'Low'}]
 
 const PercentCompleteFormatter = ({value}) => (
   <div className='progress'>
@@ -29,8 +34,6 @@ const PercentCompleteFormatter = ({value}) => (
     </div>
   </div>
 )
-
-const ChatButton = () => <Button flat primary label='Chat'>chat_bubble_outline</Button>
 
 const Dashboard = React.createClass({
   getInitialState () {
@@ -115,7 +118,7 @@ const Dashboard = React.createClass({
       rows.push({
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
-        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor(Math.random() * 4)],
+        priority: ['1 - Critical', '2 - High', '3 - Medium', '4 - Low'][Math.floor(Math.random() * 4)],
         complete: Math.min(100, Math.round(Math.random() * 110)),
         status: ['Tear Ordered', 'Proof Review', 'Awaiting Charges', 'Customer AWOL'][Math.floor(Math.random() * 4)],
         sales: 1,
@@ -151,6 +154,11 @@ const Dashboard = React.createClass({
   rowGetter (rowIdx) {
     let rows = this.getRows()
     return rows[rowIdx]
+  },
+
+  componentDidMount () {
+    //  Automatically sorts by incomplete orders first.
+    this.setState({sortColumn: 'complete', sortDirection: 'ASC'})
   },
 
   handleGridSort (sortColumn, sortDirection) {
