@@ -15,25 +15,21 @@ const bagOptions = [
   {id: 3, title: 'Packet, 4oz'}
 ]
 const priorityOptions = ['1 - Critical', '2 - High', '3 - Medium', '4 - Low']
-// const priorityOptions = [
-  // {id: 3, value: 3, title: 'Critical'},
-  // {id: 2, value: 2, title: 'High'},
-  // {id: 1, value: 1, title: 'Medium'},
-  // {id: 0, value: 0, title: 'Low'}]
 
-const PercentCompleteFormatter = ({value}) => (
-  <div className='progress'>
-    <div className='progress-bar' role='progressbar'
-      aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
-      style={{
-        width: `${value}%`,
-        color: value <= 20 ? '#333' : '#fff',
-        backgroundColor: value <= 20 ? '#82B1FF' : '#428bca'
-      }}>
-      {`${value}%`}
-    </div>
-  </div>
-)
+import CompletionFormatter from '../formatters/CompletionFormatter'
+// const CompletionFormatter = ({value}) => (
+//   <div className='progress'>
+//     <div className='progress-bar' role='progressbar'
+//       aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
+//       style={{
+//         width: `${value}%`,
+//         color: value <= 20 ? '#333' : '#fff',
+//         backgroundColor: value <= 20 ? '#82B1FF' : '#428bca'
+//       }}>
+//       {`${value}%`}
+//     </div>
+//   </div>
+// )
 
 const Dashboard = React.createClass({
   getInitialState () {
@@ -72,7 +68,7 @@ const Dashboard = React.createClass({
       {
         key: 'complete',
         name: 'Completion',
-        formatter: PercentCompleteFormatter,
+        formatter: CompletionFormatter,
         editable: true,
         resizable: true,
         sortable: true,
