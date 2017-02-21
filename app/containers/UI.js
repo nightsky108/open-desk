@@ -25,6 +25,7 @@ module.exports = React.createClass({
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
           toolbarTitle={this.state.toolbarTitle}
           drawerTitle={<span className='md-text--theme-primary'>Messaging</span>}
+          // position={'right'}
         >
           {this.props.children}
         </NavigationDrawer>

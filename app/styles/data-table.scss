@@ -19,6 +19,10 @@
     .tools {
       display: block;
     }
+    button {
+      font-weight: bold;
+      color: #2196f3;
+    }
   }
   .form-group {
     display: flex;
@@ -32,6 +36,18 @@
   .drag-handle {
     display: none;
   }
+
+  input {
+    background-color: inherit;
+    // border-color: #0D47A1;
+    border: none;
+    height: 28px;
+    // width: 100%;
+    // height: 100%;
+  }
+
+
+
 }
 @media screen and (min-width: 1025px) {
   #grid-wrapper {
