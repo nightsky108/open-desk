@@ -29,6 +29,7 @@ const Columns = [
     resizable: true,
     filterable: true,
     sortable: true,
+    // draggable: false,
     width: 100
   },
   {
@@ -40,6 +41,7 @@ const Columns = [
     resizable: true,
     filterable: true,
     sortable: true,
+    // draggable: false,
     width: 125
     // update: () => console.log('Autocomplete update')
   },

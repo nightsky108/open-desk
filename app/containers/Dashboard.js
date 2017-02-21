@@ -65,16 +65,17 @@ const Dashboard = React.createClass({
   // componentWillMount () { this.handleGridSort('priority', 'ASC') },
 
   handleGridSort (sortColumn, sortDirection) {
-    const comparer = (a, b) => {
-      if (sortDirection === 'ASC') {
-        return (a[sortColumn] > b[sortColumn]) ? 1 : -1
-      } else if (sortDirection === 'DESC') {
-        return (a[sortColumn] < b[sortColumn]) ? 1 : -1
+    if (sortDirection !== 'NONE') {
+      const comparer = (a, b) => {
+        if (sortDirection === 'ASC') {
+          return (a[sortColumn] > b[sortColumn]) ? 1 : -1
+        } else if (sortDirection === 'DESC') {
+          return (a[sortColumn] < b[sortColumn]) ? 1 : -1
+        }
       }
+      const rows = this.state.rows.sort(comparer)
+      this.setState({ rows })
     }
-
-    const rows = sortDirection === 'NONE' ? this.state.originalRows.slice(0) : this.state.rows.sort(comparer)
-    this.setState({ rows })
   },
 
   handleFilterChange (filter) {

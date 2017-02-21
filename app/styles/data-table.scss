@@ -29,6 +29,9 @@
   .react-grid-Header {
     font-weight: bold;
   }
+  .drag-handle {
+    display: none;
+  }
 }
 @media screen and (min-width: 1025px) {
   #grid-wrapper {
