@@ -21,6 +21,7 @@ const Dashboard = React.createClass({
     let rows = []
     for (let i = 1; i < 10; i++) {
       rows.push({
+        id: i,
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
         priority: ['1 - Critical', '2 - High', '3 - Medium', '4 - Low'][Math.floor(Math.random() * 4)],
@@ -39,7 +40,11 @@ const Dashboard = React.createClass({
 
   handleGridRowsUpdated ({ fromRow, toRow, updated }) {
     let rows = this.state.rows.slice()
-
+    console.log('ROWS', rows)
+    console.log('FROM', fromRow)
+    console.log('TO', toRow)
+    console.log('UPDATED', updated)
+    console.log('Getrows', this.getRows())
     for (let i = fromRow; i <= toRow; i++) {
       let rowToUpdate = rows[i]
       // Error here
