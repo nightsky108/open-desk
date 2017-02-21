@@ -34,7 +34,7 @@ const common = merge(
     }
   },
   parts.indexTemplate({
-    title: 'Open Industry',
+    title: 'Presidential.IO | The Executive Tracker',
     appMountId: 'app'
   }),
   parts.loadJSX(PATHS.app),
