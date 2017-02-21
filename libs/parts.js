@@ -189,7 +189,7 @@ exports.extractCSS = function (paths) {
       loaders: [
         // Extract CSS during build
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           loader: ExtractTextPlugin.extract('css!sass'),
           include: paths
         }
