@@ -1,19 +1,10 @@
 import React from 'react'
-import ListItem from 'react-md/lib/Lists/ListItem'
 import Avatar from 'react-md/lib/Avatars'
 
 import Paper from 'react-md/lib/Papers'
 
-import TextField from 'react-md/lib/TextFields'
-
 //  Array is raw due to the unique nature of each element
-const NavItems = [
-  <ListItem
-    leftAvatar={<Avatar src='http://derfunknoid.com/logo.png' role='presentation' />}
-    primaryText='Barren Skew'
-    secondaryText={'Senior Graphics Coordinator\nGraphics Department'}
-    threeLines
-  />, {divider: true},
+const ChatBox = () => (
   <div className='chat-box'>
     <div className='chat-message'>
       <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
@@ -46,16 +37,7 @@ const NavItems = [
       </Paper>
       <Avatar src='http://derfunknoid.com/logo.png' iconSized role='presentation' />
     </div>
-  </div>, {divider: true},
-  <TextField
-    id='singleMultiline'
-    // id='floatingMultiline'
-    // label='Type a message...'
-    // placeholder="Hello World"
-    lineDirection='right'
-    rows={4}
-    className='md-cell md-cell--bottom'
-  />
-]
+  </div>
+)
 
-export default NavItems
+export default ChatBox

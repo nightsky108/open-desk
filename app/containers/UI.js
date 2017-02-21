@@ -2,7 +2,9 @@ import React from 'react'
 // import 'font-awesome/scss/font-awesome.scss'
 
 import NavigationDrawer from 'react-md/lib/NavigationDrawers'
-import NavItems from '../components/NavItems'
+// import NavItems from '../components/NavItems'
+
+import Sidebar from './Sidebar'
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -17,7 +19,7 @@ module.exports = React.createClass({
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
         <NavigationDrawer
-          navItems={NavItems}
+          navItems={Sidebar}
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
