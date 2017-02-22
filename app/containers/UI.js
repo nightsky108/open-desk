@@ -1,17 +1,20 @@
-import React from 'react'
-// import 'font-awesome/scss/font-awesome.scss'
+import React, { Component } from 'react'
 
 import NavigationDrawer from 'react-md/lib/NavigationDrawers'
-// import NavItems from '../components/NavItems'
-
 import Sidebar from './Sidebar'
 
-module.exports = React.createClass({
-  getInitialState: function () {
-    return {
-      toolbarTitle: <span>Open Industry | <em>service manager</em></span>
+// import Firebase from 'firebase'
+// import ReactFireMixin from 'reactfire'
+// import reactMixin from 'react-mixin'
+
+class UI extends Component {
+  constructor (props, context) {
+    super(props, context)
+    this.state = {
+      toolbarTitle: <span>Open Industry | <em>service manager</em></span>,
+      users: []
     }
-  },
+  }
 
   render () {
     return (
@@ -25,11 +28,21 @@ module.exports = React.createClass({
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
           toolbarTitle={this.state.toolbarTitle}
           drawerTitle={<span className='md-text--theme-primary'>Messaging</span>}
-          // position={'right'}
         >
           {this.props.children}
         </NavigationDrawer>
       </div>
     )
   }
-})
+}
+
+export default UI
+
+// module.exports = React.createClass({
+//   getInitialState: function () {
+//     return {
+//
+//     }
+//   },
+//
+// })

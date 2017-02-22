@@ -2202,9 +2202,9 @@ findup-sync@0.4.2:
     micromatch "^2.3.7"
     resolve-dir "^0.1.0"
 
-firebase@^3.6.4:
-  version "3.6.9"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.9.tgz#26ad0f6adf2cd829a91e52e44f4867050f3cd2ad"
+firebase@^3.5.2:
+  version "3.6.10"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.10.tgz#1efc0b31ab510eacab353eb11a84869196372ae5"
   dependencies:
     dom-storage "2.0.2"
     faye-websocket "0.9.3"
@@ -4450,6 +4450,12 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+re-base@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/re-base/-/re-base-2.6.0.tgz#372d9ccd422e45312bca8bfa66f3cc72b1def91c"
+  dependencies:
+    firebase "^3.5.2"
+
 react-addons-css-transition-group@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-addons-css-transition-group/-/react-addons-css-transition-group-15.4.2.tgz#b7828834dfa14229fe07750e331e8a8cb6fb7745"
@@ -4628,10 +4634,6 @@ react@^15.3.2, react@^15.4.1, react@^15.4.2:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
-
-reactfire@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/reactfire/-/reactfire-1.0.0.tgz#d62a6c0d854bae9fd1eee4f9c4128682fc35ff21"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
