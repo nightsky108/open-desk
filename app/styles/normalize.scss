@@ -9,14 +9,14 @@
 //   width: 1px;  /* remove scrollbar space */
 // }
 //  Fixing overlap with data table
-.md-drawer--fixed {
-  z-index: 100;
+nav {
+  z-index: 100 !important;  //  React-data-grid alters other dom elements
   .md-list--drawer {
     padding: 0px;
   }
   max-height: 100vh !important;
   overflow-y: hidden;
-}
-.md-list .md-divider {
-  margin: 0;
+  .md-divider {
+    margin: 0 !important; //  Override react-md
+  }
 }

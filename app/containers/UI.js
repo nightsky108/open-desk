@@ -17,7 +17,9 @@ class UI extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      users: []
+      cases: [],
+      chat: [],
+      user: false
     }
     this.authenticate = this.authenticate.bind(this)
   }
@@ -46,7 +48,7 @@ class UI extends Component {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
         <NavigationDrawer
-          navItems={[<Sidebar />]}
+          navItems={[<Sidebar {...this.authenticate} />]}
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
