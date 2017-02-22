@@ -1,3 +1,4 @@
+import React from 'react'
 const { Editors } = require('react-data-grid-addons')
 const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
 

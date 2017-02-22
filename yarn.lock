@@ -4491,13 +4491,13 @@ react-addons-transition-group@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-data-grid-addons@^2.0.14:
+react-data-grid-addons@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/react-data-grid-addons/-/react-data-grid-addons-2.0.14.tgz#9560ddc8d7137ea725c3ef1c392f21ce2ea7b6af"
   dependencies:
     react-data-grid "^2.0.14"
 
-react-data-grid@^2.0.14:
+react-data-grid@2.0.14, react-data-grid@^2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/react-data-grid/-/react-data-grid-2.0.14.tgz#d9b2a501c4045267ff72dccd9de82758bfe7245f"
 
