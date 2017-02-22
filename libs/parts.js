@@ -134,6 +134,13 @@ exports.setupCSS = function (paths) {
 }
 
 exports.minify = function () {
+  //  ADDED
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('production')
+    }
+  })
+  //  ADDED
   return {
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
