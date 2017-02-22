@@ -38,7 +38,8 @@ class UI extends Component {
   }
 
   authenticate () {
-    let authHandler = (error, user) => !error ? this.setState({user: user}) : console.log('Error', error)
+    //  oAuth returns {user: {credentials: ..., user: {}}}, thus the user.user prop
+    let authHandler = (error, user) => !error ? this.setState({user: user.user}) : console.log('Error', error)
     base.authWithOAuthPopup('google', authHandler)
     // this.setState({user: user})
   }
