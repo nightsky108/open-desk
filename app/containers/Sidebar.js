@@ -10,15 +10,15 @@ class Sidebar extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      chat: [],
-      user: false
+      chat: []
+      // user: false
     }
   }
 
   render () {
     return (
       <div>
-        <Profile />
+        <Profile authenticate={this.props.authenticate} user={this.props.user} />
         <div className='md-divider' />
 
         {/*

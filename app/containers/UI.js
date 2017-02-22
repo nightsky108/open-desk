@@ -38,8 +38,9 @@ class UI extends Component {
   }
 
   authenticate () {
-    let authHandler = (error, user) => error ? console.log('Error:', error) : console.log('User Obj:', user)
+    let authHandler = (error, user) => !error ? this.setState({user: user}) : console.log('Error', error)
     base.authWithOAuthPopup('google', authHandler)
+    // this.setState({user: user})
   }
 
   render () {
@@ -48,7 +49,7 @@ class UI extends Component {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
         <NavigationDrawer
-          navItems={[<Sidebar {...this.authenticate} />]}
+          navItems={[<Sidebar authenticate={this.authenticate} user={this.state.user} chat={this.state.chat} />]}
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
@@ -61,13 +62,6 @@ class UI extends Component {
     )
   }
 
-  componentDidMount () {
-    // let authHandler = function (error, user) {
-    //   if (error) console.log('Error:', error)
-    //   console.log('User Obj:', user)
-    // }
-    this.authenticate()
-  }
 }
 
 export default UI
