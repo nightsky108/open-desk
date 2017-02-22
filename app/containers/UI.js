@@ -4,6 +4,7 @@ import NavigationDrawer from 'react-md/lib/NavigationDrawers'
 import Sidebar from './Sidebar'
 import Dashboard from './Dashboard'
 
+//  Initialize Firebase with re(act)-firebase
 import Rebase from 're-base'
 var base = Rebase.createClass({
   apiKey: 'AIzaSyBfCVgE634iJa2xEuKckrA4uuUukrIc8PU',
@@ -18,6 +19,7 @@ class UI extends Component {
     this.state = {
       users: []
     }
+    this.authenticate = this.authenticate.bind(this)
   }
 
   componentWillMount () {
@@ -28,9 +30,14 @@ class UI extends Component {
     })
     base.syncState(`chat`, {
       context: this,
-      state: 'chat',
-      asArray: true
+      state: 'chat'
+      // asArray: true
     })
+  }
+
+  authenticate () {
+    let authHandler = (error, user) => error ? console.log('Error:', error) : console.log('User Obj:', user)
+    base.authWithOAuthPopup('google', authHandler)
   }
 
   render () {
@@ -50,6 +57,14 @@ class UI extends Component {
         </NavigationDrawer>
       </div>
     )
+  }
+
+  componentDidMount () {
+    // let authHandler = function (error, user) {
+    //   if (error) console.log('Error:', error)
+    //   console.log('User Obj:', user)
+    // }
+    this.authenticate()
   }
 }
 

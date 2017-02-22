@@ -2202,7 +2202,7 @@ findup-sync@0.4.2:
     micromatch "^2.3.7"
     resolve-dir "^0.1.0"
 
-firebase@^3.5.2:
+firebase@3.x.x, firebase@^3.5.2:
   version "3.6.10"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.10.tgz#1efc0b31ab510eacab353eb11a84869196372ae5"
   dependencies:
@@ -2211,6 +2211,12 @@ firebase@^3.5.2:
     jsonwebtoken "7.1.9"
     rsvp "3.2.1"
     xmlhttprequest "1.8.0"
+
+firechat@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/firechat/-/firechat-3.0.1.tgz#70096c74e0b4b385bc3576992ab5bc92e3e82739"
+  dependencies:
+    firebase "3.x.x"
 
 flat-cache@^1.2.1:
   version "1.2.2"
@@ -3033,6 +3039,10 @@ joi@^6.10.1:
     isemail "1.x.x"
     moment "2.x.x"
     topo "1.x.x"
+
+jquery@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
 
 js-base64@^2.1.9:
   version "2.1.9"

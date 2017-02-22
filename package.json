@@ -18,8 +18,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "firechat": "^3.0.1",
     "immutability-helper": "^2.1.1",
     "is-mobile": "^0.2.2",
+    "jquery": "^3.1.1",
     "node-sass": "^4.1.1",
     "re-base": "^2.6.0",
     "react": "^15.4.1",

@@ -8,3 +8,15 @@
 //   background: transparent;  /* optional: just make scrollbar invisible */
 //   width: 1px;  /* remove scrollbar space */
 // }
+//  Fixing overlap with data table
+.md-drawer--fixed {
+  z-index: 100;
+  .md-list--drawer {
+    padding: 0px;
+  }
+  max-height: 100vh !important;
+  overflow-y: hidden;
+}
+.md-list .md-divider {
+  margin: 0;
+}
