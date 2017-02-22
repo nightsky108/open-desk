@@ -29,6 +29,7 @@
   .md-paper {
     display: inline-block;
     word-break: break-all;
+    // text-overflow: ellipsis;
     max-width: 195px;
     padding: 8px;
     background-color: white;
@@ -57,17 +58,5 @@
       max-height: inherit;
       overflow-y: auto;
     }
-  }
-}
-
-//Text area label responsiveness fix.
-@media screen and (min-width: 320px) {
-  .md-floating-label--floating {
-    transform: translate3d(0, -16px, 0);
-  }
-}
-@media screen and (min-width: 1025px) {
-  .md-floating-label--floating {
-    transform: translate3d(0, -12px, 0);
   }
 }

@@ -1297,7 +1297,8 @@ tbody {
 
 @media screen and (min-width: 320px) and (max-width: 1024px) {
   .md-drawer--left {
-    max-width: 320px;
+    min-width: 275px;
+    max-width: 350px;
     transform: translate3d(-100vw, 0, 0);
     width: calc(100vw - 56px);
   }
