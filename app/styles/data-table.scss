@@ -47,7 +47,9 @@
     height: 28px;
   }
 
-
+  * {
+    transition: background 0.15s, box-shadow 0.3s, color 0.15s;
+  }
 
 }
 @media screen and (min-width: 1025px) {

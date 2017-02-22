@@ -5,12 +5,14 @@ import ChatBox from './Chat/ChatBox'
 import Composer from './Chat/Composer'
 
 //  Array is raw due to the unique nature of each element
-const Sidebar = [
-  <Profile />,
-  {divider: true},
-  <ChatBox />,
-  {divider: true},
-  <Composer />
-]
+const Sidebar = ({chat = []}) => (
+  <div>
+    <Profile />
+    <div className='md-divider' />
+    <ChatBox messages={chat} />
+    <div className='md-divider' />
+    <Composer />
+  </div>
+)
 
 export default Sidebar

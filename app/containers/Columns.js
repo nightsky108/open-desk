@@ -4,9 +4,9 @@ const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
 
 import CompletionFormatter from '../formatters/CompletionFormatter'
 
-import GraphicsFormatter from '../formatters/GraphicsFormatter'
-import SalesFormatter from '../formatters/SalesFormatter'
-import QualityFormatter from '../formatters/QualityFormatter'
+import CaseFormatter from '../formatters/GraphicsFormatter'
+// import SalesFormatter from '../formatters/SalesFormatter'
+// import QualityFormatter from '../formatters/QualityFormatter'
 
 const BagOptions = [
   {id: 0, title: 'Bag, 12oz'},
@@ -15,12 +15,9 @@ const BagOptions = [
   {id: 3, title: 'Packet, 4oz'}
 ]
 const PriorityOptions = ['1 - Critical', '2 - High', '3 - Medium', '4 - Low']
-// const PriorityOptions = [
-//   {id: 0, title: '1 - Critical'},
-//   {id: 1, title: '2 - High'},
-//   {id: 2, title: '3 - Medium'},
-//   {id: 3, title: '4 - Low'}
-// ]
+
+const TeamOptions = ['', 'Sales', 'Graphics', 'Q.A.', 'Completed']
+const FacilityOptions = ['', 'Seattle', 'Kent', 'Tacoma']
 
 const Columns = [
   {
@@ -65,6 +62,25 @@ const Columns = [
     sortable: true,
     width: 120
   },
+  // const TeamOptions = ['Unassigned', 'Sales', 'Graphics', 'Q.A.', 'Completed']
+  // const FacilityOptions = ['Unassigned', 'Seattle', 'Kent', 'Tacoma']
+  {
+    key: 'team',
+    name: 'Team',
+    editor: <DropDownEditor options={TeamOptions} />,
+    editable: true,
+    resizable: true,
+    width: 100
+  },
+  {
+    key: 'facility',
+    name: 'Facility',
+    editor: <DropDownEditor options={FacilityOptions} />,
+    editable: true,
+    resizable: true,
+    width: 100
+  },
+
   {
     key: 'status',
     name: 'Status',
@@ -73,21 +89,9 @@ const Columns = [
     width: 300
   },
   {
-    key: 'sales',
+    key: 'record',
     name: '',
-    formatter: SalesFormatter,
-    width: 110
-  },
-  {
-    key: 'graphics',
-    name: '',
-    formatter: GraphicsFormatter,
-    width: 110
-  },
-  {
-    key: 'qa',
-    name: '',
-    formatter: QualityFormatter,
+    formatter: CaseFormatter,
     width: 110
   }
 ]

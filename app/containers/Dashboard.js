@@ -19,17 +19,17 @@ const Dashboard = React.createClass({
   },
   createRows () {
     let rows = []
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1; i < 50; i++) {
       rows.push({
         id: i,
         name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
         product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
         priority: ['1 - Critical', '2 - High', '3 - Medium', '4 - Low'][Math.floor(Math.random() * 4)],
         complete: Math.min(100, Math.round(Math.random() * 110)),
+        team: '',
+        facility: '',
         status: ['Tear Ordered', 'Proof Review', 'Awaiting Charges', 'Customer AWOL'][Math.floor(Math.random() * 4)],
-        sales: 1,
-        graphics: 1,
-        qa: 1
+        record: {}
       })
     }
     return rows
