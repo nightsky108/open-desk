@@ -21,9 +21,7 @@
   .md-paper {
     display: inline-block;
     word-break: break-all;
-    // text-overflow: ellipsis;
-    max-width: 215px;
-    // max-width: (cald100%;
+    max-width: calc(100% - 32px);
     padding: 8px;
     background-color: white;
     .received {
