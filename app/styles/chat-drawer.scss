@@ -2,8 +2,13 @@
   height: calc(100vh - 76px - 64px - 100px - 12px);
   background-color: #f9f9f9;
   overflow-y: auto;
+  //
+  text-align:center;
   .chat-message {
     padding: 4px;
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 255px;
   }
   .md-avatar {
     vertical-align: top;
@@ -17,7 +22,8 @@
     display: inline-block;
     word-break: break-all;
     // text-overflow: ellipsis;
-    max-width: 195px;
+    max-width: 215px;
+    // max-width: (cald100%;
     padding: 8px;
     background-color: white;
     .received {
