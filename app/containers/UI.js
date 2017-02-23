@@ -21,7 +21,8 @@ class UI extends Component {
       chat: [],
       user: false
     }
-    this.authenticate = this.authenticate.bind(this)
+    this.auth = this.auth.bind(this)
+    this.unauth = this.unauth.bind(this)
   }
 
   componentWillMount () {
@@ -37,11 +38,15 @@ class UI extends Component {
     })
   }
 
-  authenticate () {
+  auth () {
     //  oAuth returns {user: {credentials: ..., user: {}}}, thus the user.user prop
     let authHandler = (error, user) => !error ? this.setState({user: user.user}) : console.log('Error', error)
     base.authWithOAuthPopup('google', authHandler)
     // this.setState({user: user})
+  }
+  unauth () {
+    base.unauth()
+    this.setState({user: false})
   }
 
   render () {
@@ -50,7 +55,10 @@ class UI extends Component {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
         <NavigationDrawer
-          navItems={[<Sidebar authenticate={this.authenticate} user={this.state.user} chat={this.state.chat} />]}
+          navItems={[<Sidebar
+            auth={this.auth} unauth={this.unauth}
+            user={this.state.user} chat={this.state.chat}
+          />]}
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}

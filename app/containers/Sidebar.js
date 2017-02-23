@@ -19,7 +19,7 @@ class Sidebar extends Component {
   render () {
     return (
       <div>
-        <Profile user={this.props.user} authenticate={this.props.authenticate} />
+        <Profile user={this.props.user} auth={this.props.auth} unauth={this.props.unauth} />
         <div className='md-divider' />
         <FireChatContainer user={this.props.user} chat={this.props.chat} />
         {/*

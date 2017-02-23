@@ -5,9 +5,9 @@ import Avatar from 'react-md/lib/Avatars'
 
 // photoURL | displayName | email
 // threeLines
-const Profile = ({ user = false, authenticate }) => (
+const Profile = ({ user = false, auth, unauth }) => (
   <div>
-    {user ? <ListItem
+    {user ? <ListItem onClick={unauth}
       leftAvatar={
         <Avatar src={user.photoURL} role='presentation' />
       }
@@ -17,12 +17,11 @@ const Profile = ({ user = false, authenticate }) => (
         <span>{`${user.email}\n`}<em>Click to logout</em></span>
       }
     />
-    : <ListItem onClick={authenticate}
+    : <ListItem onClick={auth}
       threeLines
       primaryText={<b>Click to Login</b>}
       secondaryText={<em>Authentication by Google</em>}
     />
-
     }
   </div>
 )
