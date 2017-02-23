@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 import Profile from './Chat/Profile'
-import FireChatContainer from './Chat/FireChatContainer'
-// import ChatBox from './Chat/ChatBox'
-// import Composer from './Chat/Composer'
+// import FireChatContainer from './Chat/FireChatContainer'
+import ChatBox from './Chat/ChatBox'
+import Composer from './Chat/Composer'
 
 //  Array is raw due to the unique nature of each element
 
@@ -21,29 +21,13 @@ class Sidebar extends Component {
       <div>
         <Profile user={this.props.user} auth={this.props.auth} unauth={this.props.unauth} />
         <div className='md-divider' />
-        <FireChatContainer user={this.props.user} chat={this.props.chat} />
-        {/*
-        <ChatBox messages={chat} />
+        <ChatBox messages={this.state.chat} />
         <div className='md-divider' />
         <Composer />
-        */}
       </div>
     )
   }
 }
 
-//
-// const Sidebar = ({chat = [],  }) => (
-//   <div>
-//     <Profile />
-//     <div className='md-divider' />
-//
-//     {/*
-//     <ChatBox messages={chat} />
-//     <div className='md-divider' />
-//     <Composer />
-//     */}
-//   </div>
-// )
 
 export default Sidebar
