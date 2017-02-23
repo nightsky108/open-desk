@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Profile from './Chat/Profile'
+import FireChatContainer from './Chat/FireChatContainer'
 // import ChatBox from './Chat/ChatBox'
 // import Composer from './Chat/Composer'
 
@@ -18,9 +19,9 @@ class Sidebar extends Component {
   render () {
     return (
       <div>
-        <Profile authenticate={this.props.authenticate} user={this.props.user} />
+        <Profile user={this.props.user} authenticate={this.props.authenticate} />
         <div className='md-divider' />
-
+        <FireChatContainer user={this.props.user} chat={this.props.chat} />
         {/*
         <ChatBox messages={chat} />
         <div className='md-divider' />

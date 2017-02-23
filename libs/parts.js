@@ -12,6 +12,10 @@ exports.indexTemplate = function (options) {
         title: options.title,
         appMountId: options.appMountId,
         inject: false
+      }),
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
       })
     ]
   }
