@@ -69,6 +69,7 @@ const Columns = [
     editor: <DropDownEditor options={TeamOptions} />,
     editable: true,
     resizable: true,
+    filterable: true,
     width: 100
   },
   {
@@ -77,6 +78,7 @@ const Columns = [
     editor: <DropDownEditor options={FacilityOptions} />,
     editable: true,
     resizable: true,
+    filterable: true,
     width: 100
   },
 
@@ -85,6 +87,7 @@ const Columns = [
     name: 'Status',
     editable: true,
     resizable: true,
+    filterable: true,
     width: 300
   },
   {
