@@ -3,36 +3,31 @@ import React from 'react'
 import update from 'immutability-helper'
 //  ES5 syntax seems to only work in this strange instance
 //  Without this, double filters interfere.
+import Columns from './Columns'
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons')
 
-import Columns from './Columns'
+import Firebase from '../firebase'
 
 const Dashboard = React.createClass({
   getInitialState () {
     this._columns = Columns
-    return { rows: this.createRows(), filters: {} }
+    return {
+      // rows: [],
+      filters: {}
+    }
   },
 
-  //  Generate Test Data
-  getRandomDate (start, end) {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString()
+  componentWillMount () {
+    Firebase.syncState(`cases`, {
+      context: this,
+      state: 'rows',
+      asArray: true
+    })
   },
-  createRows () {
-    let rows = []
-    for (let i = 1; i < 50; i++) {
-      rows.push({
-        id: i,
-        name: ['Reanimator', 'Fromm Food', '49th Parallel', 'Tommy\'s Coffee'][Math.floor(Math.random() * 4)],
-        product: ['Bag, 12oz', 'Tin, 8oz', 'Standup Bag, Pour', 'Packet, 4oz'][Math.floor(Math.random() * 4)],
-        priority: ['1 - Critical', '2 - High', '3 - Medium', '4 - Low'][Math.floor(Math.random() * 4)],
-        complete: Math.min(100, Math.round(Math.random() * 110)),
-        team: '',
-        facility: '',
-        status: ['Tear Ordered', 'Proof Review', 'Awaiting Charges', 'Customer AWOL'][Math.floor(Math.random() * 4)],
-        record: {}
-      })
-    }
-    return rows
+
+  componentDidMount () {
+    //  Automatically sorts by incomplete orders first.
+    this.handleGridSort('priority', 'ASC')
   },
 
   getRows () { return Selectors.getRows(this.state) },
@@ -60,9 +55,6 @@ const Dashboard = React.createClass({
     let rows = this.getRows()
     return rows[rowIdx]
   },
-
-  //  Automatically sorts by incomplete orders first.
-  componentWillMount () { this.handleGridSort('priority', 'ASC') },
 
   handleGridSort (sortColumn, sortDirection) {
     if (sortDirection !== 'NONE') {
@@ -93,18 +85,22 @@ const Dashboard = React.createClass({
 
   render () {
     return (
-      <div id='grid-wrapper'>
-        <ReactDataGrid
-          columns={this._columns}
-          rowGetter={this.rowGetter}
-          rowsCount={this.getSize()}
-          enableCellSelect
-          cellNavigationMode='loopOverRow'
-          toolbar={<Toolbar enableFilter />}
-          onGridRowsUpdated={this.handleGridRowsUpdated}
-          onGridSort={this.handleGridSort}
-          onAddFilter={this.handleFilterChange}
-          onClearFilters={this.onClearFilters} />
+      <div>
+        {this.state.rows &&
+        <div id='grid-wrapper'>
+          <ReactDataGrid
+            columns={this._columns}
+            rowGetter={this.rowGetter}
+            rowsCount={this.getSize()}
+            enableCellSelect
+            cellNavigationMode='loopOverRow'
+            toolbar={<Toolbar enableFilter />}
+            onGridRowsUpdated={this.handleGridRowsUpdated}
+            onGridSort={this.handleGridSort}
+            onAddFilter={this.handleFilterChange}
+            onClearFilters={this.onClearFilters} />
+        </div>
+      }
       </div>
     )
   }

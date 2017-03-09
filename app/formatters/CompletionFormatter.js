@@ -3,7 +3,7 @@ import React from 'react'
 //  Styles are determined dynamically for readability.
 const CompletionFormatter = ({value}) => (
   <div>
-    {(typeof value === 'number' && value >= 0 && value <= 100)
+    {typeof value === 'number'
       ? <div className='progress'>
         <div className={'progress-bar'} role='progressbar'
           aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'
