@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import Profile from './Chat/Profile'
-// import FireChatContainer from './Chat/FireChatContainer'
 import ChatBox from './Chat/ChatBox'
 import Composer from './Chat/Composer'
 
