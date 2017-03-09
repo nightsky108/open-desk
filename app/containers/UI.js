@@ -5,13 +5,7 @@ import Sidebar from './Sidebar'
 import Dashboard from './Dashboard'
 
 //  Initialize Firebase with re(act)-firebase
-import Rebase from 're-base'
-var base = Rebase.createClass({
-  apiKey: 'AIzaSyBfCVgE634iJa2xEuKckrA4uuUukrIc8PU',
-  authDomain: 'darrendrew-eaf10.firebaseapp.com',
-  databaseURL: 'https://darrendrew-eaf10.firebaseio.com',
-  storageBucket: 'darrendrew-eaf10.appspot.com'
-})
+import Firebase from '../firebase'
 
 class UI extends Component {
   constructor (props, context) {
@@ -26,12 +20,12 @@ class UI extends Component {
   }
 
   componentWillMount () {
-    base.syncState(`cases`, {
+    Firebase.syncState(`cases`, {
       context: this,
       state: 'cases',
       asArray: true
     })
-    base.syncState(`chat`, {
+    Firebase.syncState(`chat`, {
       context: this,
       state: 'chat'
       // asArray: true
@@ -41,11 +35,11 @@ class UI extends Component {
   auth () {
     //  oAuth returns {user: {credentials: ..., user: {}}}, thus the user.user prop
     let authHandler = (error, user) => !error ? this.setState({user: user.user}) : console.log('Error', error)
-    base.authWithOAuthPopup('google', authHandler)
+    Firebase.authWithOAuthPopup('google', authHandler)
     // this.setState({user: user})
   }
   unauth () {
-    base.unauth()
+    Firebase.unauth()
     this.setState({user: false})
   }
 
@@ -62,7 +56,7 @@ class UI extends Component {
           mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
           desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
-          toolbarTitle={<span>Open Industry | <em>service manager</em></span>}
+          toolbarTitle={<span>Open Industry | <em>case manager</em></span>}
           drawerTitle={<span className='md-text--theme-primary'>Messaging</span>}
         >
           <Dashboard />
@@ -74,12 +68,3 @@ class UI extends Component {
 }
 
 export default UI
-
-// module.exports = React.createClass({
-//   getInitialState: function () {
-//     return {
-//
-//     }
-//   },
-//
-// })

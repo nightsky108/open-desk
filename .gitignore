@@ -3,3 +3,4 @@ build/
 coverage/
 .eslintcache
 npm-debug.log
+firebase-key.js

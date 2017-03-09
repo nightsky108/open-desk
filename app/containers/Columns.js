@@ -3,8 +3,7 @@ const { Editors } = require('react-data-grid-addons')
 const { AutoComplete: AutoCompleteEditor, DropDownEditor } = Editors
 
 import CompletionFormatter from '../formatters/CompletionFormatter'
-
-import CaseFormatter from '../formatters/GraphicsFormatter'
+import CaseFormatter from '../formatters/CaseFormatter'
 // import SalesFormatter from '../formatters/SalesFormatter'
 // import QualityFormatter from '../formatters/QualityFormatter'
 
