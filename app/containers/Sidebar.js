@@ -27,7 +27,7 @@ class Sidebar extends Component {
       </div>
     )
   }
-}
 
+}
 
 export default Sidebar

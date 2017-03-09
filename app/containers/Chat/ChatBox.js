@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Avatar from 'react-md/lib/Avatars'
-import Paper from 'react-md/lib/Papers'
 
 //  Array is raw due to the unique nature of each element
 const ChatBox = () => (
